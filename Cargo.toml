@@ -1,0 +1,13 @@
+[package]
+name = "zed_github_mcp"
+version = "0.0.1"
+edition = "2024"
+license = "Apache-2.0"
+
+[lib]
+path = "src/github_mcp.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+serde = "1.0.219"
+zed_extension_api = "0.3.0"
