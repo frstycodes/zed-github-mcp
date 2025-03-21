@@ -2,6 +2,7 @@ id = "github-context-server"
 name = "GitHub Context Server"
 description = "Model Context Server(MCP) for GitHub"
 version = "0.0.1"
+schema_version = 1
 authors = ["Sandesh Pandey <sandeshpandeywork@gmail.com>"]
 repository = "https://github.com/sandeshpandeywork/zed-github-mcp"
 
