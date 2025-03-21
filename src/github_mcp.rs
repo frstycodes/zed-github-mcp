@@ -24,8 +24,8 @@ impl Extension for GithubMCP {
         _server_id: &zed_extension_api::ContextServerId,
         project: &zed_extension_api::Project,
     ) -> zed_extension_api::Result<zed_extension_api::Command> {
-        let version1 = zed::npm_package_installed_version(PACKAGE_NAME)?; // one more change
-        if version1.as_deref() != Some(PACKAGE_VERSION) {
+        let version = zed::npm_package_installed_version(PACKAGE_NAME)?;
+        if version.as_deref() != Some(PACKAGE_VERSION) {
             zed::npm_install_package(PACKAGE_NAME, PACKAGE_VERSION)?;
         }
         let settings = ContextServerSettings::for_project("github-context-server", project)?;
@@ -46,7 +46,7 @@ impl Extension for GithubMCP {
             .to_string();
 
         Ok(zed::Command {
-            command: "node".to_string(), // There is a change
+            command: "node".to_string(),
             args: vec![server_path],
             env: vec![(TOKEN_KEY.into(), settings.github_personal_access_token)],
         })
